@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class ej3 {
+
+	public static void main(String[] args) {
+		
+		int[] positivos = new int[5];
+		int[] negativos = new int[5];
+		int[] ceros = new int [5];
+
+		int i = 0;
+		
+		for (i = 0; i < 5; i++) {
+			System.out.println ("Introduzca cinco números, separados por intro:");
+			Scanner entrada = new Scanner (System.in);
+			int numero = entrada.nextInt();
+			
+			if (numero > 0) {
+				positivos[i] = numero;
+			}
+			else if (numero < 0) {
+				negativos[i] = numero;
+			}
+			else {
+				ceros[i] = 1;
+			}
+		}
+		
+		
+	}
+
+}
