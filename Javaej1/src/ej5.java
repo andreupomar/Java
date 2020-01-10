@@ -3,7 +3,9 @@ import java.util.Scanner;
 
 public class ej5 {
 
-	public static void main(String[] args) {
+	public void alternar() {
+		
+		Scanner entrada = new Scanner (System.in);
 		
 		int[] tab1 = new int [10];
 		int[] tab2 = new int [10];
@@ -13,13 +15,11 @@ public class ej5 {
 		
 		for (i = 0; i < 10; i++) {
 			System.out.println ("Introduzca diez números para el array 1, separados por intro:");
-			Scanner entrada = new Scanner (System.in);
 			tab1[i] = entrada.nextInt();
 		}
 		
 		for (i = 0; i < 10; i++) {
 			System.out.println ("Introduzca diez números para el array 2, separados por intro:");
-			Scanner entrada = new Scanner (System.in);
 			tab2[i] = entrada.nextInt();
 		}
 		
@@ -36,6 +36,7 @@ public class ej5 {
 			System.out.println(tab3[i]);
 		}
 		
+		entrada.close();
 		
 		
 	}

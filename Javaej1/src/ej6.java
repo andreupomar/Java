@@ -1,7 +1,7 @@
 
 public class ej6 {
 
-	public static void main(String[] args) {
+	public void undostres (){
 		
 		String[] ser1 = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
 		String[] ser2 = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"};

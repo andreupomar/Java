@@ -2,17 +2,21 @@ import java.util.Scanner;
 
 public class ej1 {
 
-	public static void main(String[] args) {
+	public void cinconums() {
 		System.out.println ("Introduzca cinco números, separados por intro:");
 		Scanner entrada = new Scanner (System.in);
-		int num1 = entrada.nextInt();
-		int num2 = entrada.nextInt();
-		int num3 = entrada.nextInt();
-		int num4 = entrada.nextInt();
-		int num5 = entrada.nextInt();
 		
-		System.out.println ("Los números introducidos son: "+num1+", "+num2+", "+num3+", "+num4+" y "+num5);
+		int i;
+		int[] nums = new int[5];
 		
+		for (i = 0; i < 5; i++) {
+			int numer = entrada.nextInt();
+			nums[i] = numer;
+		}
+		
+		System.out.println ("Los números introducidos son: "+nums[0]+", "+nums[1]+", "+nums[2]+", "+nums[3]+" y "+nums[4]);
+	
+		entrada.close();
 	}
 
 }

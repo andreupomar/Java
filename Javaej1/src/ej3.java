@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class ej3 {
 
-	public static void main(String[] args) {
+	public void medias() {
 		
 		int[] positivos = new int[5];
 		int[] negativos = new int[5];
@@ -20,6 +20,7 @@ public class ej3 {
 			System.out.println ("Introduzca cinco números, separados por intro:");
 			Scanner entrada = new Scanner (System.in);
 			int numero = entrada.nextInt();
+			entrada.close();
 			
 			if (numero > 0) {
 				positivos[i] = numero;
@@ -31,7 +32,7 @@ public class ej3 {
 				ceros[i] = 1;
 			}
 		}
-		
+
 		for (i = 0; i < 5; i++) {
 			if (positivos[i] != 0) {
 				numpositivos ++;
