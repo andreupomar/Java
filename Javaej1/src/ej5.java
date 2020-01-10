@@ -23,8 +23,8 @@ public class ej5 {
 			tab2[i] = entrada.nextInt();
 		}
 		
-		for (i = 0; i < 20; i++) { // Ni puta idea de por qué i/2, que a veces da decimales me funciona, pero aquí estamos ¯\_(ツ)_/¯
-			if (i%2==0) {
+		for (i = 0; i < 20; i++) { // Ni puta idea de por qué i/2, que a veces da decimales, me funciona
+			if (i%2==0) { // pero aquí estamos ¯\_(ツ)_/¯
 				tab3[i] = tab1[i/2];
 			}
 			else {
