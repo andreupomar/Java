@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Cuenta {
 	//ATRIBUTOS
@@ -5,6 +6,8 @@ public class Cuenta {
 	private String numCuenta;
 	private double tInteres;
 	private double saldo;
+	
+	static Scanner entrada = new Scanner (System.in);
 	
 	public Cuenta(String nombre, String numCuenta, double tInteres, double saldo) { //CONSTRUCTOR
 		this.setNombre(nombre);
@@ -56,4 +59,49 @@ public class Cuenta {
 	}
 	
 	
+	public void crearCuenta() {
+		System.out.println("Introduzca un nombre para su cuenta: ");
+		this.setNombre(entrada.nextLine());
+		System.out.println("Introduzca un número de cuenta: ");
+		this.setNumCuenta(entrada.nextLine());
+		System.out.println("Introduzca un tipo de interés: ");
+		this.settInteres(entrada.nextDouble());
+		System.out.println("Introduzca un saldo inicial: ");
+		this.setSaldo(entrada.nextDouble());
+	}
+	
+	public boolean ingresarDinero() { //INGRESAR DINERO
+		boolean exito = false;
+		System.out.println("Introduzca la cantidad de dinero a ingresar");
+		double cantidad = entrada.nextDouble();
+		
+		if (cantidad < 0) {
+			System.out.println("No es posible introducir una cantidad negativa de dinero");
+		}
+		else {
+			this.setSaldo(saldo+cantidad);
+			exito = true;
+		}
+		return exito;
+	}
+	
+	public boolean retirarDinero() { //RETIRAR DINERO DE LA CUENTA
+		boolean exito = false;
+		System.out.println("Introduzca la cantidad de dinero a retirar");
+		double cantidad = entrada.nextDouble();
+		
+		if (cantidad < 0) {
+			System.out.println("No es posible retirar una cantidad negativa de dinero");
+		}
+		else if (this.getSaldo()<cantidad) {
+			System.out.println("No dispone de suficiente saldo para realizar esta operación.");
+		}
+		else {
+			this.setSaldo(saldo-cantidad);
+			exito = true;
+		}
+		
+		return exito;
+	}
+
 }
