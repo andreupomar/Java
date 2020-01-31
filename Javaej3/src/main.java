@@ -12,6 +12,8 @@ public class main {
 		for (int i = 0; i < ListaCuentas.size(); i++) {
 			System.out.println(i+"   "+ListaCuentas.get(i).getNombre()+"   "+ListaCuentas.get(i).getNumCuenta());
 		}
+		System.out.println("");
+		System.out.println("Introduzca el ID de la cuenta: ");
 	}
 
 	public static void main(String[] args) {
@@ -43,12 +45,25 @@ public class main {
 			
 			case 2:
 				mostrarLista(ListaCuentas);
-				System.out.println("");
-				System.out.println("Introduzca el ID de la cuenta: ");
 				
 				int ID = entrada.nextInt();
 				ListaCuentas.get(ID).ingresarDinero();
+				break;
 				
+			case 3: 
+				mostrarLista(ListaCuentas);
+				
+				int ID2 = entrada.nextInt();
+				ListaCuentas.get(ID2).retirarDinero();
+				break;
+				
+			case 4:
+				mostrarLista(ListaCuentas);
+				Cuenta.transferirDinero(ListaCuentas);
+				break;
+				
+			default:
+				menu = false;
 			}
 		}
 	}

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Cuenta {
@@ -108,4 +109,25 @@ public class Cuenta {
 		return exito;
 	}
 
+	public static boolean transferirDinero(ArrayList<Cuenta> ListaCuentas) { //TRANSFIERE DINERO DE UNA CUENTA A OTRA
+		boolean exito = false;
+		int ID = entrada.nextInt();
+		System.out.println("Introduzca la cantidad a transferir");
+		float cantidad = entrada.nextFloat();
+		System.out.println("Introduzca la cuenta de destino: ");
+		int destino = entrada.nextInt();
+		
+		if (cantidad <= 0 || ListaCuentas.get(ID).getSaldo() < cantidad) {
+			System.out.println("ERROR! La cuenta origen no dispone de saldo suficiente o la cantidad es negativa");
+		}
+		else {
+			ListaCuentas.get(ID).setSaldo(ListaCuentas.get(ID).getSaldo() - cantidad);
+			ListaCuentas.get(destino).setSaldo(ListaCuentas.get(destino).getSaldo() + cantidad);
+			exito = true;
+		}
+		System.out.println("El nuevo saldo de la cuenta "+ID+" es "+ListaCuentas.get(ID).getSaldo());
+		System.out.println("El nuevo saldo de la cuenta "+destino+" es "+ListaCuentas.get(destino).getSaldo());
+		
+		return exito;
+	}
 }
