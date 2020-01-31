@@ -23,6 +23,10 @@ public class Cuenta {
 		this.settInteres(cuenta1.tInteres);
 		this.setSaldo(cuenta1.saldo);
 	}
+	
+	public Cuenta() {
+		
+	}
 
 
 	//GETTERS Y SETTERS
