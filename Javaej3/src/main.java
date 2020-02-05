@@ -65,7 +65,7 @@ public class main {
 			default:
 				menu = false;
 			}
+			entrada.close();
 		}
 	}
-
 }
