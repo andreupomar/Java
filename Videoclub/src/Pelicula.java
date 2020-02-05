@@ -134,19 +134,37 @@ public class Pelicula {
 		}
 	}
 	
-	public static void listarCatálogo(ArrayList<Pelicula> Catalogo) { 
+	public static boolean listarCatálogo(ArrayList<Pelicula> Catalogo) { 
 		String estado = "";
-		for (int i = 0; i< Catalogo.size(); i++) { //Recorre el array
-			if (Catalogo.get(i).isDisponibilidad() == true) { //Si está disponible, cambia "estado" a disponible
-				estado = "DISPONIBLE";
-			}
-			else {
-				estado = "NO DISPONIBLE";
-			}
+		boolean exito = true; //Asumimos que tendrá éxito
+		if (Catalogo.size() > 0) { //Comprobamos el tamaño del arraylist para ver que no está vacío
+			for (int i = 0; i< Catalogo.size(); i++) { //Recorre el array
+				if (Catalogo.get(i).isDisponibilidad() == true) { //Si está disponible, cambia "estado" a disponible
+					estado = "DISPONIBLE";
+				}
+				else {
+					estado = "NO DISPONIBLE";
+				}
+				
 			System.out.println("ID: "+Catalogo.get(i).getIdentificador()+" Título: "+Catalogo.get(i).getTitulo()+"   Director: "+Catalogo.get(i).getDirector()+"  Género: "+Catalogo.get(i).getGenero()+"  Duración: "+Catalogo.get(i).getDuracion()+" "+estado);
-			
 			}
 		}		
+		else { //Si está vacío, nos saltamos el for y printeamos un mensaje de error
+			System.out.println("No se han encontrado películas en el catálogo.");
+			exito = false;
+		}
+		return exito;
+	}
 	
+	public static boolean buscarCatálogo(ArrayList<Pelicula> Catalogo) {
+		System.out.println("¿Por qué parámetro desea buscar?");
+		System.out.println("1 - ID");
+		System.out.println("2 - Título");
+		System.out.println("3 - Director");
+		System.out.println("4 - Año");
+		System.out.println("5 - Género");
+		
+		int select = entrada.nextInt();
+		
+	}
 }
-
