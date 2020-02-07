@@ -34,12 +34,20 @@ public class main {
 			case 2: 
 				Pelicula.listarCatálogo(Catalogo);
 				if (Pelicula.listarCatálogo(Catalogo) == true) {
-					
+					Pelicula.reservarPelicula(Catalogo);
 				}
 				break;
 				
 			case 3:
 				Pelicula.listarCatálogo(Catalogo);
+				break;
+			
+			case 4:
+				Pelicula.buscarMenú(Catalogo);
+				break;
+			
+			default: 
+				menu = false;
 				break;
 			}
 			

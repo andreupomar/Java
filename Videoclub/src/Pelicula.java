@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Pelicula {
 	//ATRIBUTOS
-	private int identificador;
+	private Integer identificador;
 	private String titulo;
 	private String director;
 	private float duracion;
 	private String genero;
-	private int año;
+	private Integer año;
 	private boolean disponibilidad;
 	private int cantidad;
 	private int reservadas;
@@ -15,11 +15,11 @@ public class Pelicula {
 	static Scanner entrada = new Scanner (System.in);
 	
 	//GETTERS Y SETTERS
-	public int getIdentificador() {
+	public Integer getIdentificador() {
 		return identificador;
 	}
 
-	public void setIdentificador(int identificador) {
+	public void setIdentificador(Integer identificador) {
 		this.identificador = identificador;
 	}
 
@@ -55,11 +55,11 @@ public class Pelicula {
 		this.genero = genero;
 	}
 
-	public int getAño() {
+	public Integer getAño() {
 		return año;
 	}
 
-	public void setAño(int año) {
+	public void setAño(Integer año) {
 		this.año = año;
 	}
 
@@ -139,14 +139,8 @@ public class Pelicula {
 		boolean exito = true; //Asumimos que tendrá éxito
 		if (Catalogo.size() > 0) { //Comprobamos el tamaño del arraylist para ver que no está vacío
 			for (int i = 0; i< Catalogo.size(); i++) { //Recorre el array
-				if (Catalogo.get(i).isDisponibilidad() == true) { //Si está disponible, cambia "estado" a disponible
-					estado = "DISPONIBLE";
-				}
-				else {
-					estado = "NO DISPONIBLE";
-				}
-				
-			System.out.println("ID: "+Catalogo.get(i).getIdentificador()+" Título: "+Catalogo.get(i).getTitulo()+"   Director: "+Catalogo.get(i).getDirector()+"  Género: "+Catalogo.get(i).getGenero()+"  Duración: "+Catalogo.get(i).getDuracion()+" "+estado);
+				estado = cambiarEstado(Catalogo, i);	
+				System.out.println("ID: "+Catalogo.get(i).getIdentificador()+" Título: "+Catalogo.get(i).getTitulo()+"   Director: "+Catalogo.get(i).getDirector()+"  Género: "+Catalogo.get(i).getGenero()+"  Duración: "+Catalogo.get(i).getDuracion()+" "+estado);
 			}
 		}		
 		else { //Si está vacío, nos saltamos el for y printeamos un mensaje de error
@@ -156,15 +150,98 @@ public class Pelicula {
 		return exito;
 	}
 	
-	public static boolean buscarCatálogo(ArrayList<Pelicula> Catalogo) {
-		System.out.println("¿Por qué parámetro desea buscar?");
-		System.out.println("1 - ID");
-		System.out.println("2 - Título");
-		System.out.println("3 - Director");
-		System.out.println("4 - Año");
-		System.out.println("5 - Género");
+	public static void buscarMenú(ArrayList<Pelicula> Catalogo) {
 		
-		int select = entrada.nextInt();
+		int select = 1;
+		while (select > 0 || select < 6) { //Bucle principal, si introducimos una opción inválida saldrá
+			System.out.println("¿Por qué parámetro desea buscar?");
+			System.out.println("1 - ID");
+			System.out.println("2 - Título");
+			System.out.println("3 - Director");
+			System.out.println("4 - Año");
+			System.out.println("5 - Género");
+			System.out.println("*) - Salir");
+			select = entrada.nextInt(); 
 		
+			buscarLógica(Catalogo, select); 
+		}
+	
+	}
+	
+	public static String cambiarEstado(ArrayList<Pelicula> Catalogo, int i) { //Cambia el estado de las películas al printear el catálogo
+		String estado = "";
+		if (Catalogo.get(i).isDisponibilidad() == true) {
+			estado = "DISPONIBLE";
+		}
+		else {
+			estado = "NO DISPONIBLE";
+		}
+		return estado;
+	}
+	
+	public static void buscarLógica(ArrayList<Pelicula> Catalogo, int select) {
+		System.out.println("Por favor, introduzca el parámetro a buscar");
+		String query = entrada.nextLine();
+		String estado = ""; //para no printear TRUE
+		
+		for (int i = 0; i > Catalogo.size(); i++) {
+			if (select == 1) {
+				if (Catalogo.get(i).getIdentificador().toString().contains(query) == true) { //Si el ID de i convertido a string contiene la query:
+					estado = cambiarEstado(Catalogo, i);
+					System.out.println("ID: "+Catalogo.get(i).getIdentificador()+" Título: "+Catalogo.get(i).getTitulo()+"   Director: "+Catalogo.get(i).getDirector()+"  Género: "+Catalogo.get(i).getGenero()+"  Duración: "+Catalogo.get(i).getDuracion()+" "+estado);
+				}
+			}
+			
+			else if (select == 2) {
+				if (Catalogo.get(i).getTitulo().contains(query) == true) {
+					estado = cambiarEstado(Catalogo, i);
+					System.out.println("ID: "+Catalogo.get(i).getIdentificador()+" Título: "+Catalogo.get(i).getTitulo()+"   Director: "+Catalogo.get(i).getDirector()+"  Género: "+Catalogo.get(i).getGenero()+"  Duración: "+Catalogo.get(i).getDuracion()+" "+estado);
+				}
+			}
+			
+			else if (select == 3) {
+				if (Catalogo.get(i).getDirector().contains(query) == true) {
+					estado = cambiarEstado(Catalogo, i);
+				}
+			}
+			
+			else if (select == 4) {
+				if (Catalogo.get(i).getAño().toString().contains(query) == true) {
+					estado = cambiarEstado(Catalogo, i);
+					System.out.println("ID: "+Catalogo.get(i).getIdentificador()+" Título: "+Catalogo.get(i).getTitulo()+"   Director: "+Catalogo.get(i).getDirector()+"  Género: "+Catalogo.get(i).getGenero()+"  Duración: "+Catalogo.get(i).getDuracion()+" "+estado);
+				}
+			}
+			
+			else {
+				if (Catalogo.get(i).getDirector().contains(query) == true) {
+					estado = cambiarEstado(Catalogo, i);
+					System.out.println("ID: "+Catalogo.get(i).getIdentificador()+" Título: "+Catalogo.get(i).getTitulo()+"   Director: "+Catalogo.get(i).getDirector()+"  Género: "+Catalogo.get(i).getGenero()+"  Duración: "+Catalogo.get(i).getDuracion()+" "+estado);
+				}
+			}
+		}
+		
+	}
+
+	public static void reservarPelicula(ArrayList<Pelicula> Catalogo) {
+		System.out.println("Introduzca la ID de la película que desea reservar");
+		int reserva = entrada.nextInt();
+		
+		int restantes = Catalogo.get(reserva).getCantidad() - Catalogo.get(reserva).getReservadas();
+		System.out.println(Catalogo.get(reserva).getTitulo()+" ("+Catalogo.get(reserva).getAño()+")");
+		System.out.println("Copias restantes: "+restantes);
+		
+		System.out.println("Introduzca la cantidad de copias a reservar");
+		int copias = entrada.nextInt();
+		
+		if (copias <= restantes) {
+			Catalogo.get(reserva).setReservadas(Catalogo.get(reserva).getReservadas()+copias); //Añade las copias a las ya reservadas
+			if (Catalogo.get(reserva).getCantidad() == Catalogo.get(reserva).getReservadas()) { //Comprobamos si nos hemos quedado sin copias
+				Catalogo.get(reserva).setDisponibilidad(false); //Y Cambiamos la disponibilidad
+			}
+		}
+		
+		else {
+			System.out.println("ERROR: No quedan tantas películas");
+		}
 	}
 }
