@@ -57,5 +57,18 @@ public class empleado {
 		this.salario = salario;
 	}
 	
+	//CONSTRUCTOR COPIA (EN DESUSO)
+	public empleado (empleado empleado1) {
+		this.setNombre(empleado1.nombre);
+		this.setApellido1(empleado1.apellido1);
+		this.setApellido2(empleado1.apellido2);
+		this.setNif(empleado1.nif);
+		this.setEdad(empleado1.edad);
+		this.setSalario(empleado1.salario);
+	}
+	
+	public empleado() { //CONSTRUCTOR VACÍO
+		//APARENTEMENTE LO NECESITO PARA LOS CONSTRUCTORES COPIA DE LOS HIJOS
+	}
 	
 }

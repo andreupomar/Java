@@ -86,24 +86,6 @@ public class Pelicula {
 	public void setReservadas(int reservadas) {
 		this.reservadas = reservadas;
 	}
-
-	
-	//CONSTRUCTOR
-	public Pelicula(int identificador, String titulo, String director, float duracion, String genero, int año,
-			boolean disponibilidad, int cantidad, int reservadas) {
-		this.identificador = identificador;
-		this.titulo = titulo;
-		this.director = director;
-		this.duracion = duracion;
-		this.genero = genero;
-		this.año = año;
-		this.disponibilidad = disponibilidad;
-		this.cantidad = cantidad;
-		this.reservadas = reservadas;
-	}
-	
-	public Pelicula() {} //Constructor vacío, que utilizaremos posteriormente con AñadirPelícula()
-
 	
 	public void añadirPelícula(int contador, int copias) { //Genera una película, para posteriormente añadirla al array
 		System.out.println("¿Cuántas copias va a añadir?");
