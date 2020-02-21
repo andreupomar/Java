@@ -32,7 +32,6 @@ final public class repartidor extends empleado {
 	}
 
 	//CONSTRUCTOR COPIA (EN DESUSO)
-	//CONSTRUCTOR COPIA (EN DESUSO)
 		public repartidor(repartidor repartidor1) {
 			this.setNombre(repartidor1.nombre);
 			this.setApellido1(repartidor1.apellido1);

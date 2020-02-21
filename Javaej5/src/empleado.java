@@ -71,4 +71,12 @@ public class empleado {
 		//APARENTEMENTE LO NECESITO PARA LOS CONSTRUCTORES COPIA DE LOS HIJOS
 	}
 	
+	public void mostrarAtributos() {
+		System.out.println("Nombre: "+this.getNombre());
+		System.out.println("Apellido 1: "+this.getApellido1());
+		System.out.println("Apellido 2: "+this.getApellido2());
+		System.out.println("NIF: "+this.getNif());
+		System.out.println("Edad: "+this.getEdad());
+		System.out.println("Salario: "+this.getSalario());
+	}
 }
