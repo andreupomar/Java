@@ -44,6 +44,8 @@ final public class comercial extends empleado {
 		this.setNif(comercial1.nif);
 		this.setEdad(comercial1.edad);
 		this.setSalario(comercial1.salario);
+		this.setVentasRealizadas(comercial1.ventasRealizadas);
+		this.setComisión(comercial1.comisión);
 	}
 	
 	
