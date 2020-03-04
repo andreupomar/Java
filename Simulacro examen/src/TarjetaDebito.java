@@ -1,6 +1,8 @@
+import java.util.Scanner;
 
 public final class TarjetaDebito extends Tarjeta {
-
+	Scanner entrada = new Scanner (System.in);
+	
 	//ATRIBUTOS
 	Integer saldo;
 	
@@ -32,4 +34,21 @@ public final class TarjetaDebito extends Tarjeta {
 		this.setSaldo(t1.saldo);
 	}
 
+	//MÉTODOS
+	@Override
+	public void retirarDinero() {
+		System.out.println("Su saldo es de "+this.getSaldo()+" €.");
+		System.out.println("¿Cuánto dinero desea retirar?");
+		Integer cantidad = Integer.parseInt(entrada.nextLine());
+		
+		if (this.getSaldo() < cantidad || cantidad < 0) {
+			System.out.println("Error! No dispone de dinero suficiente o está intentando retirar una cantidad negativa");
+		}
+		else {
+			this.setSaldo(this.getSaldo()-cantidad);
+			System.out.println("Se han retirado "+cantidad+" € de su cuenta. Su nuevo saldo es de: "+this.getSaldo()+" €.");
+		}
+		
+	}
+	
 }

@@ -67,4 +67,6 @@ public abstract class Tarjeta {
 		System.out.println("Los atributos son:");
 		System.out.println("NIFCliente, PINCliente, nombreCliente, apellidoCliente");
 	}
+	
+	public abstract void retirarDinero();
 }

@@ -43,4 +43,19 @@ public final class TarjetaCredito extends Tarjeta {
 		// CONSTRUCTOR VACÍO
 	}
 
+	//MÉTODOS
+	@Override
+	public void retirarDinero() {
+		System.out.println("Puede retirar hasta "+(this.getSaldoDisponible()+this.getCreditoDisponible())+" €.");
+		System.out.println("¿Cuánto dinero desea retirar?");
+		Integer cantidad = Integer.parseInt(entrada.nextLine());
+		
+		if ((this.getSaldoDisponible()+this.getCreditoDisponible()) < cantidad || cantidad < 0) {
+			System.out.println("Error! No dispone de dinero suficiente o está intentando retirar una cantidad negativa");
+		}
+		else {
+			this.setSaldo(this.getSaldo()-cantidad);
+			System.out.println("Se han retirado "+cantidad+" € de su cuenta. Su nuevo saldo es de: "+this.getSaldo()+" €.");
+		}
+	}
 }

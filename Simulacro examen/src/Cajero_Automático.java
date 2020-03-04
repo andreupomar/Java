@@ -40,5 +40,22 @@ public class Cajero_Automático {
 		this.lista_de_tarjetas = lista_de_tarjetas;
 	}
 
+	//CONSTRUCTOR	
+	public Cajero_Automático(String idCajero_ultimo, String idCajero, Integer[][] lista_de_billetes, ArrayList<Tarjeta> lista_de_tarjetas) {
+		this.idCajero_ultimo = idCajero_ultimo;
+		this.idCajero = idCajero;
+		this.lista_de_billetes = lista_de_billetes;
+		this.lista_de_tarjetas = lista_de_tarjetas;
+	}
+
 	
+	//MÉTODOS
+	public static void mostrarCajero(Cajero_Automático Cajero1) {
+		
+		Integer billetes[][] = Cajero1.getLista_de_billetes();
+		for (int i = 0; i < billetes.length; i++) {
+			System.out.println("Hay "+billetes[i][1]+" de "+billetes[i][0]+" €");
+		}
+		System.out.println("en el cajero con ID "+Cajero1.getIdCajero());
+	}
 }
