@@ -15,17 +15,17 @@ public class Cubo implements poliedro {
 	public void calcularÁrea() {
 		double area = (this.arista*2)*6;
 		imprimirCaracterísticas();
-		System.out.println("El área es "+area);
+		System.out.println("El área es "+area+" unidades cuadradas");
 	}
 	
 	public void calcularVolumen() {
 		double volumen = Math.pow(this.arista, 3);
 		imprimirCaracterísticas();
-		System.out.println("El volumen es "+volumen);
+		System.out.println("El volumen es "+volumen+" unidades cubicas");
 	}
 	
 	public void imprimirCaracterísticas() {
-		System.out.println("El cubo tiene una arista "+this.arista);
+		System.out.println("El cubo tiene una arista de "+this.arista);
 	}
 
 }
